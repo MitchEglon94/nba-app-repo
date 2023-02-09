@@ -19,7 +19,7 @@ export default async function PlayerList({ fontColor, bgColor, teamKey }) {
           className="flex flex-col items-center text-center rounded  p-2.5"
           style={{ color: `#${fontColor}`, backgroundColor: `#${bgColor}` }}
         >
-          <Player player={player} playerStats={statRes} />
+          <Player teamKey={teamKey} player={player} playerStat={statRes} />
         </div>
       ))}
     </div>

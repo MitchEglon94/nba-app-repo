@@ -10,11 +10,12 @@ async function getTeams() {
 }
 
 async function TeamDetails({ params }) {
+  console.log(params);
   const teams = await getTeams();
   const requiredTeam = teams.filter(
     (team) => team.TeamID === Number(params.team)
   )[0];
-  console.log(requiredTeam);
+  console.log("REQUIRED TEAM", requiredTeam);
 
   return (
     <div className="text-center">
