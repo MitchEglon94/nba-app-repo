@@ -1,4 +1,6 @@
 import Player from "./Player";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function PlayerList({ fontColor, bgColor, teamKey }) {
   const data = await fetch(
@@ -19,7 +21,26 @@ export default async function PlayerList({ fontColor, bgColor, teamKey }) {
           className="flex flex-col items-center text-center rounded  p-2.5"
           style={{ color: `#${fontColor}`, backgroundColor: `#${bgColor}` }}
         >
-          <Player teamKey={teamKey} player={player} playerStat={statRes} />
+          <Link href={`team/${player.PlayerID}`}>
+            <div>
+              <div>
+                {" "}
+                <Image
+                  className="rounded-full m-auto"
+                  src={player.PhotoUrl}
+                  width={75}
+                  height={75}
+                />
+              </div>
+              <div className="flex flex-col items-center">
+                <h2 className="text-2xl">
+                  {player.FirstName} {player.LastName}
+                </h2>
+                <p>No: {player.Jersey}</p>
+                <p>Position: {player.Position}</p>
+              </div>
+            </div>
+          </Link>
         </div>
       ))}
     </div>

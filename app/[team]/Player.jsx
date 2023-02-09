@@ -1,20 +1,20 @@
 import Image from "next/image";
 
-export default async function Player({ teamKey, player, playerStat }) {
-  const statData = await fetch(
-    `https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/${new Date().getFullYear()}/${teamKey}?key=${
-      process.env.API_KEY
-    }`
-  );
+export default function Player({ teamKey, player, currentPlayerStats }) {
+  // const statData = await fetch(
+  //   `https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/${new Date().getFullYear()}/${teamKey}?key=${
+  //     process.env.API_KEY
+  //   }`
+  // );
+
+  // const res = await statData.json();
   // const currentPlayerStats = await statData.json().then((r) => {
   //   return r.filter((p) => p.PlayerID === player.PlayerID)[0];
   // });
   // console.log("PLAYER", statRes);
 
-  const currentPlayer = playerStat.filter(
-    (p) => p.PlayerID === player.PlayerID
-  );
-  const currentPlayerStats = currentPlayer[0];
+  // const currentPlayer = res.filter((p) => p.PlayerID === player.PlayerID);
+  // const currentPlayerStats = currentPlayer[0];
   console.log("CURRENT PLAYER STATS", currentPlayerStats);
   return (
     <div>
@@ -33,7 +33,7 @@ export default async function Player({ teamKey, player, playerStat }) {
         </h2>
         <p>No: {player.Jersey}</p>
         <p>Position: {player.Position}</p>
-        {/* <p>Games played: {currentPlayerStats.Games}</p>
+        <p>Games played: {currentPlayerStats.Games}</p>
         <p>
           PPG:{" "}
           {(currentPlayerStats.Points / currentPlayerStats.Games).toFixed(1)}
@@ -45,7 +45,7 @@ export default async function Player({ teamKey, player, playerStat }) {
         <p>
           APG:{" "}
           {(currentPlayerStats.Assists / currentPlayerStats.Games).toFixed(1)}
-        </p> */}
+        </p>
       </div>
     </div>
   );
