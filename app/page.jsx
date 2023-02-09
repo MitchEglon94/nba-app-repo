@@ -6,12 +6,10 @@ import News from "./News";
 const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home() {
-  const data = await fetch(
-    `https://api.sportsdata.io/v3/nba/scores/json/teams?key=${process.env.API_KEY}`
-  );
-  const res = await data.json();
-  // const teamData = res.filter((team) => team.Key === "MIA");
-  // console.log(res);
+  // const data = await fetch(
+  //   `https://api.sportsdata.io/v3/nba/scores/json/teams?key=${process.env.API_KEY}`
+  // );
+  // const res = await data.json();
 
   return (
     <main className="text-center p-5">
