@@ -12,9 +12,9 @@ function Header() {
         <Link href={"/standings"}>Standings</Link>
         <Link href={"/rosters"}>Rosters</Link>
       </nav>
-      <div className="p-8">
-        <Image src={logo} />
-        <h2 className="text-2xl">The NBA in your pocket</h2>
+      <div className="p-8 ">
+        <Image src={logo} className="w-48 m-auto" />
+        <h2 className="text-2xl mb-3">The NBA in your pocket</h2>
       </div>
     </div>
   );
