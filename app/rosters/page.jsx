@@ -16,7 +16,8 @@ import TeamList from "./TeamList";
 
 async function page() {
   const data = await fetch(
-    `https://api.sportsdata.io/v3/nba/scores/json/teams?key=${process.env.API_KEY}`
+    `https://api.sportsdata.io/v3/nba/scores/json/teams?key=${process.env.API_KEY}`,
+    { next: { revalidate: 60 } }
   );
   const res = await data.json();
   return (

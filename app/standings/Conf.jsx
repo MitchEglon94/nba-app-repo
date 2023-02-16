@@ -29,7 +29,8 @@ import Link from "next/link";
 
 async function Conf({ c }) {
   const data = await fetch(
-    `https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key=${process.env.API_KEY}`
+    `https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key=${process.env.API_KEY}`,
+    { next: { revalidate: 60 } }
   );
   const res = await data.json();
 

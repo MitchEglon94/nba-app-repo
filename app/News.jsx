@@ -16,7 +16,8 @@ import React from "react";
 
 async function News() {
   const data = await fetch(
-    `https://api.sportsdata.io/v3/nba/scores/json/News?key=91115be0001446ee9e2bb104dd7f2da9`
+    `https://api.sportsdata.io/v3/nba/scores/json/News?key=91115be0001446ee9e2bb104dd7f2da9`,
+    { next: { revalidate: 60 } }
   );
   const res = await data.json();
   return (

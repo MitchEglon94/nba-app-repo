@@ -17,15 +17,22 @@ import Image from "next/image";
 async function page({ params }) {
   console.log(params);
   const data = await fetch(
-    `https://api.sportsdata.io/v3/nba/scores/json/Player/${params.player}?key=${process.env.API_KEY}`
+    `https://api.sportsdata.io/v3/nba/scores/json/Player/${params.player}?key=${process.env.API_KEY}`,
+    { next: { revalidate: 60 } }
   );
   const res = await data.json();
   console.log(res);
   return (
-    <div>
+    <div className="flex">
       <Image src={res.PhotoUrl} width={100} height={100} />
-      <p>{res.FirstName}</p>
-      <p>{res.LastName}</p>
+      <p>
+        {res.FirstName} {res.LastName}
+      </p>
+      <p>
+        Age: {new Date().getFullYear() - new Date(res.BirthDate).getFullYear()}
+      </p>
+      <p>Height: {(res.Height / 12).toFixed(2)}ft</p>
+      <p>Salary: ${(res.Salary / 1000000).toFixed(2)} million USD</p>
     </div>
   );
 }
