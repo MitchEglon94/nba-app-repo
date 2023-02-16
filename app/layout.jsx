@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       */}
       <head />
 
-      <body className="font-play" style={{ maxWidth: "375px", margin: "auto" }}>
+      <body className="font-play" style={{ maxWidth: "100vw", margin: "auto" }}>
         <Header />
         {children}
       </body>

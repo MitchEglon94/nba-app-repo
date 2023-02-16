@@ -6,7 +6,7 @@ import logo from "../public/nba-logo.png";
 function Header() {
   return (
     <div className="bg-sky-600 text-white text-center">
-      <nav className="flex gap-4 px-2 pt-2">
+      <nav className="flex justify-around gap-4 px-3 pt-3">
         <Link href={"/"}>Home</Link>
         <Link href={"/live"}>Live Games</Link>
         <Link href={"/standings"}>Standings</Link>
