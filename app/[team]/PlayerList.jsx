@@ -8,7 +8,7 @@ export default async function PlayerList({ fontColor, bgColor, teamKey }) {
   );
 
   const res = await data.json();
-
+  console.log(res);
   return (
     <div className="flex flex-col gap-5 p-5">
       Current roster
@@ -17,7 +17,7 @@ export default async function PlayerList({ fontColor, bgColor, teamKey }) {
           className="flex flex-col items-center text-center rounded  p-2.5"
           style={{ color: `#${fontColor}`, backgroundColor: `#${bgColor}` }}
         >
-          <Link href={`${player.Team}/${player.PlayerID}`}>
+          <Link href={`${player.Team}/${player.PlayerID}?color=${bgColor}`}>
             <div>
               <div>
                 {" "}

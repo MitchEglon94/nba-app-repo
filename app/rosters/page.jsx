@@ -20,6 +20,7 @@ async function page() {
     { next: { revalidate: 60 } }
   );
   const res = await data.json();
+  console.log(res);
   return (
     <div className="p-2 text-center">
       <h2 className="text-3xl p-5 w-full">Team Rosters</h2>
