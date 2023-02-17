@@ -4,7 +4,7 @@ import Team from "./Team";
 async function page() {
   const data = await fetch(
     `https://api.sportsdata.io/v3/nba/scores/json/Games/2023?key=${process.env.API_KEY}`,
-    { next: { revalidate: 43200 } }
+    { next: { revalidate: 10800 } }
   );
   const res = await data.json();
   const liveGames = res.filter(
